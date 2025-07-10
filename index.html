@@ -1,13 +1,150 @@
 <!doctype html>
 <html lang="en">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gary Campbell · Technology Leader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body{margin:0;display:flex;height:100vh;align-items:center;justify-content:center;font-family:sans-serif;background:#f4f6f8;}
-    h1{font-size:2rem;font-weight:600;color:#222;}
+    html{scroll-behavior:smooth}
   </style>
-  <body>
-    <h1>Site coming soon — stay tuned!</h1>
-  </body>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans">
+  <!-- Header / Navigation -->
+  <header class="bg-white shadow fixed w-full z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-semibold"><a href="#hero">Gary Campbell</a></h1>
+      <nav class="space-x-6 hidden sm:block">
+        <a href="#about" class="hover:text-teal-600">About</a>
+        <a href="#resume" class="hover:text-teal-600">Résumé</a>
+        <a href="#projects" class="hover:text-teal-600">Projects</a>
+        <a href="mailto:gary@garycampbell.tech" class="hover:text-teal-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-br from-teal-500 to-cyan-600 text-white py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl sm:text-5xl font-bold mb-4">Seasoned IT & Marketing Leader</h2>
+        <p class="text-lg sm:text-xl mb-8">20 years driving tech innovation and operational excellence in hospitality.</p>
+        <div class="space-x-4">
+          <a href="#resume" class="bg-white text-teal-600 font-medium py-3 px-6 rounded-full shadow hover:shadow-lg transition">View Résumé</a>
+          <a href="#projects" class="bg-transparent border border-white font-medium py-3 px-6 rounded-full hover:bg-white hover:text-teal-600 transition">Explore Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <h3 class="text-3xl font-semibold mb-6">About Me</h3>
+        <p class="mb-4">I’m Gary, a technology director who blends strategic vision with hands-on execution. From boosting Microsoft 365 Copilot adoption by <span class="font-semibold">55 % in one week</span> to leading a multi-system migration for a 50-year-old hospitality brand, I turn complex challenges into measurable wins.</p>
+        <p class="mb-6">I’m wrapping up my B.S. in Information Technology at the University of Wisconsin-Milwaukee (graduating <span class="font-semibold">Spring 2025</span>) and aiming my next chapter toward cybersecurity leadership.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-xl font-medium mb-2">Core Strengths</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li>AI & Automation (Microsoft Copilot, Power Automate)</li>
+              <li>Cybersecurity (NIST CSF, Azure Sentinel)</li>
+              <li>Project & Vendor Management</li>
+              <li>Data-driven Decision Making</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-medium mb-2">Certifications & Tools</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Azure Fundamentals (in progress)</li>
+              <li>SentinelOne, Webroot, BitLocker</li>
+              <li>SQL, HTML/CSS/JS</li>
+              <li>Next.js, Webflow, Cloudflare­ Pages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Résumé Section -->
+    <section id="resume" class="bg-white py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <h3 class="text-3xl font-semibold mb-6">Résumé Snapshot</h3>
+        <div class="space-y-4">
+          <div>
+            <h4 class="text-xl font-medium">Technology & Marketing Director · Zilli Hospitality Group</h4>
+            <span class="text-sm text-slate-600">2005 – Present</span>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Championed a <span class="font-semibold">55 % Copilot adoption</span> across departments in 7 days via tailored training sessions.</li>
+              <li>Led Fusion → Empower platform migration impacting sales, ops, and finance; improved data accuracy by 30 %.</li>
+              <li>Designed vendor efficiency program inspired by Apple supplier grants, projected to save $250k over 3 years.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-medium">Founder · Lisa Hayes Media</h4>
+            <span class="text-sm text-slate-600">2021 – Present</span>
+            <p class="mt-2">Provide AI-driven marketing guidance to hospitality clients; 20 % average uplift in social engagement.</p>
+          </div>
+        </div>
+        <a href="#" class="mt-8 inline-block bg-teal-600 text-white py-3 px-6 rounded-full shadow hover:bg-teal-700 transition">Download full PDF résumé</a>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-semibold mb-10 text-center">Selected Projects</h3>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Project Card -->
+          <article class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+            <h4 class="text-xl font-medium mb-2">Microsoft Copilot Roll-Out</h4>
+            <p class="text-sm text-slate-600 mb-4">Training program that drove 55 % adoption in the first week across 5 departments.</p>
+            <span class="text-teal-600 font-medium">Challenge → Action → Result</span>
+          </article>
+          <!-- Project Card -->
+          <article class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+            <h4 class="text-xl font-medium mb-2">Fusion → Empower Migration</h4>
+            <p class="text-sm text-slate-600 mb-4">Led phased migration of CRM/ERP platforms without downtime, boosting reporting accuracy by 30 %.</p>
+            <span class="text-teal-600 font-medium">Challenge → Action → Result</span>
+          </article>
+          <!-- Project Card -->
+          <article class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+            <h4 class="text-xl font-medium mb-2">Cybersecurity Tabletop Simulation</h4>
+            <p class="text-sm text-slate-600 mb-4">Designed and facilitated a company-wide incident-response drill; cut mean time-to-response by 40 %.</p>
+            <span class="text-teal-600 font-medium">Challenge → Action → Result</span>
+          </article>
+          <!-- Project Card -->
+          <article class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+            <h4 class="text-xl font-medium mb-2">Vendor Efficiency Program</h4>
+            <p class="text-sm text-slate-600 mb-4">Modeled after Apple supplier grants, projected $250k savings through operational improvements.</p>
+            <span class="text-teal-600 font-medium">Challenge → Action → Result</span>
+          </article>
+          <!-- Project Card -->
+          <article class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+            <h4 class="text-xl font-medium mb-2">Cradlepoint Event Wi-Fi</h4>
+            <p class="text-sm text-slate-600 mb-4">Developed cellular-backed Wi-Fi rental service for outdoor venues, creating a new revenue stream.</p>
+            <span class="text-teal-600 font-medium">Challenge → Action → Result</span>
+          </article>
+          <!-- Project Card -->
+          <article class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+            <h4 class="text-xl font-medium mb-2">Interactive Training Platform</h4>
+            <p class="text-sm text-slate-600 mb-4">Produced hands-on Copilot micro-learning modules adopted by 80+ staff.</p>
+            <span class="text-teal-600 font-medium">Challenge → Action → Result</span>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-200 py-8">
+    <div class="max-w-4xl mx-auto px-6 text-center space-y-4">
+      <p>&copy; 2025 Gary Campbell</p>
+      <p>
+        <a href="https://www.linkedin.com/in/gary-campbell-82435b24" class="underline hover:text-white" target="_blank">LinkedIn</a>
+        &middot;
+        <a href="mailto:gary@garycampbell.tech" class="underline hover:text-white">Email Me</a>
+      </p>
+    </div>
+  </footer>
+</body>
 </html>
