@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What the Dog Saw: When the Visible Problem Isn't the Real One</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #faf8f4;
+    --paper: #ffffff;
+    --ink: #14130f;
+    --ink-2: #2a2823;
+    --muted: #6b6657;
+    --rule: #e6e1d5;
+    --accent: oklch(0.55 0.13 55);
+    --accent-soft: oklch(0.95 0.03 55);
+    --highlight: oklch(0.93 0.06 90);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 32px 120px;
+  }
+
+  .meta-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, oklch(0.65 0.13 55), oklch(0.5 0.13 30));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .meta-text { line-height: 1.4; }
+  .meta-text .name { color: var(--ink); font-weight: 600; font-size: 14px; }
+  .meta-text .sub { font-size: 12px; }
+
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .deck {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0 0 48px;
+    text-wrap: pretty;
+  }
+
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin: 56px 0 18px;
+    color: var(--ink);
+  }
+
+  h2 .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  p { margin: 0 0 20px; text-wrap: pretty; }
+
+  .lead-callout {
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 22px;
+    margin: 28px 0 32px;
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .pull-question {
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.35;
+    color: var(--ink);
+    text-align: center;
+    margin: 36px auto;
+    max-width: 540px;
+    padding: 24px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    text-wrap: balance;
+  }
+
+  ul, ol {
+    margin: 0 0 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ul li, ol li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+  }
+
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0.7em;
+    width: 8px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  ol { counter-reset: step; }
+  ol li {
+    counter-increment: step;
+    padding-left: 36px;
+  }
+  ol li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper);
+  }
+
+  strong { color: var(--ink); font-weight: 600; }
+  em { font-style: italic; }
+
+  .divider {
+    display: flex;
+    justify-content: center;
+    margin: 56px 0;
+    gap: 8px;
+  }
+  .divider span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.5;
+  }
+
+  .closing {
+    margin-top: 48px;
+    padding: 28px 28px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+
+  .closing p:last-child { margin-bottom: 0; }
+
+  .footnote {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .footnote em { color: var(--ink-2); }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .emphasis {
+    background: linear-gradient(180deg, transparent 60%, var(--highlight) 60%);
+    padding: 0 2px;
+  }
+
+  .two-line-break {
+    height: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 40px 22px 80px; }
+    h1 { font-size: 34px; }
+    .deck { font-size: 19px; }
+    h2 { font-size: 24px; }
+    body { font-size: 17px; }
+    .lead-callout { font-size: 19px; }
+    .pull-question { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<article class="page">
+
+  <div class="meta-bar">
+    <div class="avatar">GC</div>
+    <div class="meta-text">
+      <div class="name"><a href="../index.html" style="color: inherit; text-decoration: none;">Gary Campbell</a></div>
+      <div class="sub">Director of IT &middot; Advisor &middot; 5 min read</div>
+    </div>
+  </div>
+
+  <div class="kicker">Essay &middot; Systems Thinking</div>
+
+  <h1>What the Dog Saw: When the Visible Problem Isn't the Real One</h1>
+
+  <p class="deck">The visible problem is rarely the real one — a thread running under Gladwell's most unrelated stories.</p>
+
+  <p>Lately I've been thinking about a strange connection between dog attacks, homelessness, corporate scandals, cybersecurity, and artificial intelligence.</p>
+
+  <p>As odd as it sounds, they all lead to the same realization: <span class="emphasis">most organizations spend enormous energy reacting to outcomes, and very little understanding the systems that created them</span>.</p>
+
+  <p>That idea kept surfacing while I was reading Malcolm Gladwell's <em>What the Dog Saw</em> — and it has stayed with me for weeks since. Not because every story was memorable, or because I agreed with every conclusion, but because the book quietly changed the way I look at other problems.</p>
+
+  <p>At first glance, the essays seem disconnected from one another. Dog attacks. Homelessness. Corporate scandals. Consumer products. Human behavior. Innovation.</p>
+
+  <p>Yet the longer I reflected on them, the more I realized they were all circling around the same underlying question:</p>
+
+  <div class="lead-callout">
+    What if the thing we're reacting to isn't actually the thing <span class="emphasis">causing the problem</span>?
+  </div>
+
+  <h2><span class="num">01</span>The same question under every story</h2>
+
+  <p>One of the essays discusses dog attacks and society's instinct to focus on specific breeds after a highly publicized incident. But the deeper issue often has more to do with systems: ownership, enforcement, training, early warning signs, and the environments that allow risk to build over time.</p>
+
+  <p>Another essay examines homelessness and how communities frequently spend enormous resources reacting to visible symptoms while missing opportunities to intervene earlier and more effectively at critical leverage points.</p>
+
+  <p>The Enron story explores how organizations often behave exactly as their systems incentivize them to behave. If short-term performance is rewarded more heavily than long-term stability, people naturally optimize for the rewards that exist. The system itself quietly shapes behavior.</p>
+
+  <p>That idea stayed with me.</p>
+
+  <p>Organizations, teams, and even technologies often produce outcomes that make perfect sense once we understand the incentives, structures, and assumptions underneath them.</p>
+
+  <h2><span class="num">02</span>I've seen this in technology leadership</h2>
+
+  <p>I've seen versions of this repeatedly in technology leadership.</p>
+
+  <ul>
+    <li>A cybersecurity incident is rarely just about security.</li>
+    <li>A struggling project is rarely just about project management.</li>
+    <li>Low adoption of a new technology is rarely just about the technology itself.</li>
+  </ul>
+
+  <p>The visible problem is often the final symptom of something deeper that has been developing quietly for a long time.</p>
+
+  <h2><span class="num">03</span>Puzzles and mysteries</h2>
+
+  <p>Another idea from the book that stayed with me was the distinction between problems that are <strong>puzzles</strong> and problems that are <strong>mysteries</strong>.</p>
+
+  <p>Some problems become clearer as we gather more information. Others remain difficult because what we actually need is a different perspective.</p>
+
+  <p class="pull-question">The closer we look, sometimes the less clearly we can see.</p>
+
+  <h2><span class="num">04</span>Why this matters now</h2>
+
+  <p>That observation feels increasingly relevant in a world shaped by artificial intelligence, organizational complexity, and constant streams of data. We often assume better answers come from collecting more information.</p>
+
+  <p>Increasingly, I suspect better answers often come from <span class="emphasis">seeing the system differently</span>.</p>
+
+  <div class="divider"><span></span><span></span><span></span></div>
+
+  <p>Looking back, I think the title itself contains the central lesson.</p>
+
+  <div class="closing">
+    <p>What matters is not simply what happened.</p>
+    <p><strong>What matters is understanding what the dog saw.</strong></p>
+  </div>
+
+  <div class="footnote">
+    <em>Inspired by</em> What the Dog Saw: And Other Adventures <em>by Malcolm Gladwell.</em>
+    <div class="tag-row">
+      <span class="tag">#SystemsThinking</span>
+      <span class="tag">#Leadership</span>
+      <span class="tag">#MalcolmGladwell</span>
+      <span class="tag">#ProblemSolving</span>
+      <span class="tag">#TechnologyLeadership</span>
+    </div>
+  </div>
+
+</article>
+</body>
+</html>
