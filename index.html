@@ -17,8 +17,27 @@
                 <a href="writing.html" class="hover:text-teal-600">Writing</a>
                 <a href="contact.html" class="hover:text-teal-600">Contact</a>
             </nav>
+            <button id="menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="sm:hidden p-2 -mr-2 text-slate-700 hover:text-teal-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
         </div>
+        <nav id="mobile-menu" class="hidden sm:hidden border-t border-slate-100 px-6 py-3 flex flex-col space-y-2 text-sm">
+            <a href="about.html" class="hover:text-teal-600">About</a>
+            <a href="work.html" class="hover:text-teal-600">Work</a>
+            <a href="writing.html" class="hover:text-teal-600">Writing</a>
+            <a href="contact.html" class="hover:text-teal-600">Contact</a>
+        </nav>
     </header>
+    <script>
+        (function () {
+            var btn = document.getElementById('menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', function () {
+                var hidden = menu.classList.toggle('hidden');
+                btn.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+            });
+        })();
+    </script>
     
     <main class="pt-24">
         <!-- Hero Section -->
